@@ -1,0 +1,33 @@
+# Xiunice Scraper - .gitignore
+
+# Images - all downloaded images (5.4G+)
+images/
+downloads/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environment
+.env
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug HTML files (can be re-fetched)
+debug/page_*.html
+debug/collection_*.html
