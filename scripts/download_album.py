@@ -17,7 +17,7 @@ from xiunice_scraper.utils import BASE_DIR, sanitize_dirname, RateLimiter
 from xiunice_scraper.downloader import curl_get, curl_download
 from xiunice_scraper.parser import parse_album_images, parse_album_title
 from xiunice_scraper.csv_util import load_history, append_history
-from xiunice_scraper.notifier import send_gotify
+from xiunice_scraper.notifier import send_notification
 
 IMAGES_DIR = os.path.join(BASE_DIR, "images")
 HISTORY_CSV = os.path.join(BASE_DIR, "data", "download_history.csv")
@@ -140,7 +140,7 @@ async def download_album(album_url: str) -> bool:
     print(f"[历史] 已记录到: {HISTORY_CSV}")
 
     emoji = "✅" if success == total else "⚠️"
-    send_gotify(
+    send_notification(
         f"{emoji} Xiunice 图集下载{'完成' if success == total else '部分完成'}",
         f"{title}\n{success}/{total} 张成功\n{elapsed:.0f}秒",
     )

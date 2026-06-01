@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 from xiunice_scraper.utils import BASE_DIR, sanitize_dirname, RateLimiter
 from xiunice_scraper.downloader import curl_get, curl_download
 from xiunice_scraper.parser import parse_search_page, parse_album_images
-from xiunice_scraper.notifier import send_gotify
+from xiunice_scraper.notifier import send_notification
 
 WORK_DIR = os.path.join(BASE_DIR, "data", "yintiantian")
 IMAGES_DIR = os.path.join(BASE_DIR, "images", "yintiantian")
@@ -157,7 +157,7 @@ async def step2_download(collections):
     print(f"目录: {IMAGES_DIR}")
     print(f"{'='*60}")
 
-    send_gotify(
+    send_notification(
         "✅ Xiunice 下载完成",
         f"尹甜甜: {ok}/{total_all}套图，{total_s}/{total_t}张成功",
     )
